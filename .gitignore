@@ -1,2 +1,3 @@
-
-*.xcuserstate
+#
+# Exclude all the Xcode user data from the git repository
+xcuserdata/
