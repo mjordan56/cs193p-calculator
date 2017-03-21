@@ -35,6 +35,19 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func touchDecimal() {
+        let decimal = "."
+        if userIsInTheMiddleOfTyping {
+            if !display.text!.contains(decimal) {
+                display.text = display.text! + decimal
+            }
+        }
+        else {
+            display.text = "0."
+            userIsInTheMiddleOfTyping = true
+        }
+    }
+    
     private var brain = CalculatorBrain()
 
     @IBAction func performOperation(_ sender: UIButton) {
