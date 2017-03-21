@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     var userIsInTheMiddleOfTyping = false
     
     var displayValue: Double {
