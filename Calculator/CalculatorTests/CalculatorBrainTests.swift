@@ -30,6 +30,9 @@ class CalculatorBrainTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    /**
+    * Tests setting the calculator brain operand.
+    */
     func testSetOperand() {
         // Test setting the operand to a simple integer value.
         brain.setOperand(1)
@@ -40,6 +43,9 @@ class CalculatorBrainTests: XCTestCase {
         XCTAssert(brain.result == 3.125)
     }
     
+    /**
+    * Tests performing the unary operation to change the sign of the operand.
+    */
     func testPerformUnaryOperationChangeSign() {
         // Test changing the sign of a positive floating point value to be negative.
         brain.setOperand(3.125)
@@ -52,6 +58,9 @@ class CalculatorBrainTests: XCTestCase {
         XCTAssert(brain.result == 3.125)
     }
     
+    /**
+    * Tests performing the binary operation to add two operands.
+    */
     func testPerformBinaryOperationAddition() {
         // Test adding two integer values.
         brain.setOperand(3)
