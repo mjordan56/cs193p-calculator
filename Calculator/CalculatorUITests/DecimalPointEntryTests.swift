@@ -1,19 +1,19 @@
 //
-//  CalculatorUITests.swift
-//  CalculatorUITests
+//  DecimalPointEntryTests.swift
+//  Calculator
 //
-//  Created by Michael Jordan on 3/10/17.
+//  Created by Michael Jordan on 3/23/17.
 //  Copyright © 2017 MichaelJordan. All rights reserved.
 //
 
 import XCTest
 
-class CalculatorUITests: XCTestCase {
+class DecimalPointEntryTests: XCTestCase {
     
     var app: XCUIApplication!
     
     var displayTextElement: XCUIElement!
-        
+
     override func setUp() {
         super.setUp()
         
@@ -36,18 +36,29 @@ class CalculatorUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        app.buttons["8"].tap()
-        app.buttons["×"].tap()
-        app.buttons["6"].tap()
-        app.buttons["±"].tap()
-        app.buttons["="].tap()
-        
-        let displayTextField = app.staticTexts["displayField"].label as String
-        XCTAssert(displayTextField == "-48.0")
+    func testDecimalPointIsEnteredFirst() {
+        app.buttons["."].tap()
+        let displayText = displayTextElement.label as String
+        XCTAssert(displayText == "0.")
     }
     
+    func testMultipleDecimalPointsAreEnteredFirst() {
+        app.buttons["."].tap()
+        app.buttons["."].tap()
+        app.buttons["."].tap()
+        let displayText = displayTextElement.label as String
+        XCTAssert(displayText == "0.")
+    }
+    
+    func testMultipleDecimalPointDuringOperandEntery() {
+        app.buttons["1"].tap()
+        app.buttons["2"].tap()
+        app.buttons["."].tap()
+        app.buttons["7"].tap()
+        app.buttons["."].tap()
+        app.buttons["."].tap()
+        app.buttons["5"].tap()
+        let displayText = displayTextElement.label as String
+        XCTAssert(displayText == "12.75")
+    }
 }

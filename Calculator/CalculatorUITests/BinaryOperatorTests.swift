@@ -1,30 +1,22 @@
 //
-//  CalculatorUITests.swift
-//  CalculatorUITests
+//  BinaryOperatorTests.swift
+//  Calculator
 //
-//  Created by Michael Jordan on 3/10/17.
+//  Created by Michael Jordan on 3/23/17.
 //  Copyright © 2017 MichaelJordan. All rights reserved.
 //
 
 import XCTest
 
-class CalculatorUITests: XCTestCase {
-    
-    var app: XCUIApplication!
-    
-    var displayTextElement: XCUIElement!
+class BinaryOperatorTests: XCTestCase {
         
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation
-        // of each test method in the class.
-        app = XCUIApplication()
-        displayTextElement = app.staticTexts["displayField"]
+        // Put setup code here. This method is called before the invocation of each test method in the class.
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
 
@@ -39,15 +31,6 @@ class CalculatorUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        app.buttons["8"].tap()
-        app.buttons["×"].tap()
-        app.buttons["6"].tap()
-        app.buttons["±"].tap()
-        app.buttons["="].tap()
-        
-        let displayTextField = app.staticTexts["displayField"].label as String
-        XCTAssert(displayTextField == "-48.0")
     }
     
 }
