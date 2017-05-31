@@ -25,9 +25,24 @@ class CalculatorBrainTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    /**
+    * Tests resetting the calculator brain to an initial state.
+    */
+    func testCalculatorBrainReset() {
+        brain.setOperand(3.14159)
+        brain.reset()
+        XCTAssert(brain.result == nil && !brain.resultIsPending)
+        
+        brain.setOperand(3.14159)
+        brain.performOperation("/")
+        brain.reset()
+        XCTAssert(brain.result == nil && !brain.resultIsPending)
+
+        brain.setOperand(3.14159)
+        brain.performOperation("/")
+        brain.setOperand(1.125)
+        brain.reset()
+        XCTAssert(brain.result == nil && !brain.resultIsPending)
     }
     
     /**

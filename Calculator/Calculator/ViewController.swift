@@ -27,6 +27,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func touchClear() {
+        brain.reset()
+        userIsInTheMiddleOfTyping = false
+        display.text = "0"
+    }
+    
     @IBAction func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTyping {
