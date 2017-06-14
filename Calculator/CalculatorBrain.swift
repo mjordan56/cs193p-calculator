@@ -23,7 +23,7 @@ struct CalculatorBrain {
         "π" : Operation.constant(Double.pi),
         "e" : Operation.constant(M_E),
         "√" : Operation.unaryOperation(sqrt),
-        "∛" : Operation.unaryOperation({pow($0, 1.0/3.0)}),
+        "∛" : Operation.unaryOperation({pow($0, 1.0/3.0)}),     // Cubed root function
         "x²" : Operation.unaryOperation({$0 * $0}),
         "x³" : Operation.unaryOperation({$0 * $0 * $0}),
         "sin" : Operation.unaryOperation(sin),
