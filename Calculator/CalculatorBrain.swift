@@ -50,6 +50,9 @@ struct CalculatorBrain {
                 }
             case .binaryOperation(let function):
                 if accumulator != nil {
+                    if pendingBinaryOperation != nil {
+                        performPendingBinaryOperation()
+                    }
                     pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: accumulator!)
                     accumulator = nil
                 }
