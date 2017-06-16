@@ -10,7 +10,11 @@ import Foundation
 
 struct CalculatorBrain {
     
-    private var accumulator: Double?
+    private var accumulator: (value: Double?, description: String) = (nil, "") {
+        didSet {
+            print(accumulator.description)
+        }
+    }
     
     private enum Operation {
         case constant(Double)
@@ -43,18 +47,26 @@ struct CalculatorBrain {
         if let operation = operations[symbol] {
             switch operation {
             case .constant(let value):
-                accumulator = value
+                accumulator = (value, "\(symbol)")
             case .unaryOperation(let function):
-                if accumulator != nil {
-                    accumulator = function(accumulator!)
+                if accumulator.value != nil {
+                    let description : String
+                    if resultIsPending {
+                        description = pendingBinaryOperation!.description + "\(symbol)(\(accumulator.description))"
+                        pendingBinaryOperation!.description = ""
+                    }
+                    else {
+                        description = "\(symbol)(\(accumulator.description))"
+                    }
+                    accumulator = (function(accumulator.value!), description)
                 }
             case .binaryOperation(let function):
-                if accumulator != nil {
-                    if pendingBinaryOperation != nil {
-                        performPendingBinaryOperation()
-                    }
-                    pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: accumulator!)
-                    accumulator = nil
+                performPendingBinaryOperation()
+                if accumulator.value != nil {
+                    pendingBinaryOperation = PendingBinaryOperation(function: function,
+                                                                    firstOperand: accumulator.value!,
+                                                                    description: "\(accumulator.description) \(symbol) ")
+                    accumulator = (nil, pendingBinaryOperation!.description)
                 }
             case .equals:
                 performPendingBinaryOperation()
@@ -63,8 +75,9 @@ struct CalculatorBrain {
     }
     
     private mutating func performPendingBinaryOperation() {
-        if pendingBinaryOperation != nil && accumulator != nil {
-            accumulator = pendingBinaryOperation!.perform(with: accumulator!)
+        if pendingBinaryOperation != nil && accumulator.value != nil {
+            accumulator = (pendingBinaryOperation!.perform(with: accumulator.value!),
+                           pendingBinaryOperation!.description + "\(accumulator.description)")
             pendingBinaryOperation = nil
         }
     }
@@ -80,6 +93,7 @@ struct CalculatorBrain {
     private struct PendingBinaryOperation {
         let function: (Double, Double) -> Double
         let firstOperand: Double
+        var description: String
         
         func perform(with secondOperand: Double) -> Double {
             return function(firstOperand, secondOperand)
@@ -87,17 +101,17 @@ struct CalculatorBrain {
     }
     
     mutating func setOperand(_ operand: Double) {
-        accumulator = operand
+        accumulator = (operand, "\(operand)")
     }
     
-    var result: Double? {
+    var result: (value: Double?, description: String) {
         get {
             return accumulator
         }
     }
     
     mutating func reset() {
-        accumulator = nil
+        accumulator = (nil, "")
         pendingBinaryOperation = nil
     }
 }

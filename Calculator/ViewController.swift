@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             brain.performOperation(mathematicalSymbol)
         }
         
-        if let result = brain.result {
+        if let result = brain.result.value {
             displayValue = result
         }
     }
