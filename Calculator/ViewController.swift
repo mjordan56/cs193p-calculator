@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     
+    @IBOutlet weak var inputSequence: UILabel!
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         brain.reset()
         userIsInTheMiddleOfTyping = false
         display.text = "0"
+        inputSequence.text = " "
     }
     
     @IBAction func touchDigit(_ sender: UIButton) {
@@ -73,5 +76,8 @@ class ViewController: UIViewController {
         if let result = brain.result.value {
             displayValue = result
         }
+        
+        let resultStateIndicator = brain.resultIsPending ? "…" : "="
+        inputSequence.text = "\(brain.result.description)\(resultStateIndicator)"
     }
 }
