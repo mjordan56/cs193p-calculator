@@ -52,6 +52,13 @@ struct CalculatorBrain {
                 if accumulator.value != nil {
                     let description : String
                     if resultIsPending {
+                        // Unary operations execute on the current operand. If there
+                        // is a pending operation the description of the pending
+                        // operation needs to be included in the description. Include the
+                        // pending operation description before the unary operation
+                        // description and clear the pending operation description since
+                        // it has been accounted for here.
+                        //
                         description = pendingBinaryOperation!.description + "\(symbol)(\(accumulator.description))"
                         pendingBinaryOperation!.description = ""
                     }
@@ -106,7 +113,10 @@ struct CalculatorBrain {
     
     var result: (value: Double?, description: String) {
         get {
-            return accumulator
+            // Strip off trailing white space from the accumulator description
+            //
+            let description = accumulator.description.replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression)
+            return (value: accumulator.value, description)
         }
     }
     

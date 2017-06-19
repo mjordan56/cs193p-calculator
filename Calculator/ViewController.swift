@@ -78,6 +78,6 @@ class ViewController: UIViewController {
         }
         
         let resultStateIndicator = brain.resultIsPending ? "…" : "="
-        inputSequence.text = "\(brain.result.description)\(resultStateIndicator)"
+        inputSequence.text = "\(brain.result.description) \(resultStateIndicator)"
     }
 }
