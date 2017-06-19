@@ -408,7 +408,6 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Hpm-m3-ewK" firstAttribute="top" secondItem="xY0-cf-nNU" secondAttribute="bottom" id="Ati-f9-RUP"/>
                                     <constraint firstItem="Bdg-tz-Ky4" firstAttribute="top" secondItem="Hpm-m3-ewK" secondAttribute="bottom" constant="4" id="wHg-Ky-nBF"/>
                                 </constraints>
                             </stackView>
