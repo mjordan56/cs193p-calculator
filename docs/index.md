@@ -16,6 +16,8 @@ The basic assignment was pretty straightforward. A trap that I find easy to fall
 
 That said, one piece of this assignment that I spent a fair amount of time considering was implementing the input sequence description. Hint 4 states "Economy is valuable in coding." There is another hint that suggests using a tuple for the accumulator and the input sequence associated with the accumulator value. I like the idea of coupling related data but a simple tuple doesn't quite jive with my thinking. It's too simple a data structure for what I think the accumulator and the input sequence need to do. I made the code work with a tuple for the accumulator and associated description of the input sequence but I'm not a fan of how it's implemented. Basically, I don't like the special case needed to handle unary operations when there is a pending operation. To make this work properly I needed to consume the description from the pending operation to prepend to the description before the unary opertation description and set the pending operation description to an empty string. This all works as required but I think a structure for the accumulator that has the current accumulator value, the input sequence and other properties and methods specific to handling the accumulator would work better. That said, this could be my naiveté with Swift or the design of the calculator brain. Regardless, I made the code work within the guidelines as I understood them and commented the code to clarify the unary description case.
 
+![Calculator](assets/images/calculator_v1.0.png)
+
 The code for Assignment I is on GitHub: [CS193p Calculator - Assignment I](https://github.com/mjordan56/cs193p-calculator/tree/v1.0)
 
 ## Unit Tests
