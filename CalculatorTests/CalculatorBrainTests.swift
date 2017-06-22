@@ -110,7 +110,7 @@ class CalculatorBrainTests: XCTestCase {
         brain.performOperation("+")
         XCTAssert(brain.resultIsPending == true)
         XCTAssert(brain.result.value == nil)
-        XCTAssert(brain.result.description == "7.0 + ")
+        XCTAssert(brain.result.description == "7.0 +")
         
         brain.setOperand(9.0)
         XCTAssert(brain.resultIsPending == true)
