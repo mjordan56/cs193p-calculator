@@ -62,7 +62,7 @@
                                                         <rect key="frame" x="69" y="0.0" width="67.5" height="90.5"/>
                                                         <color key="backgroundColor" red="0.57647058823529407" green="0.6705882352941176" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="∛">
+                                                        <state key="normal" title="x²">
                                                             <color key="titleColor" red="0.1960784314" green="0.23529411759999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
@@ -73,7 +73,7 @@
                                                         <rect key="frame" x="137.5" y="0.0" width="68" height="90.5"/>
                                                         <color key="backgroundColor" red="0.57647058823529407" green="0.6705882352941176" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="x²">
+                                                        <state key="normal" title="RND">
                                                             <color key="titleColor" red="0.1960784314" green="0.23529411759999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
