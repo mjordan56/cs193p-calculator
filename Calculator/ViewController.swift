@@ -35,6 +35,18 @@ class ViewController: UIViewController {
         display.text = "0"
         inputSequence.text = " "
     }
+
+    @IBAction func touchBackspace() {
+        if display.text != nil && userIsInTheMiddleOfTyping {
+            if display.text!.characters.count == 1 {
+                display.text = "0"
+                userIsInTheMiddleOfTyping = false
+            }
+            else {
+                display.text!.characters.removeLast()
+            }
+        }
+    }
     
     @IBAction func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!

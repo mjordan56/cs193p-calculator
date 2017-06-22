@@ -84,11 +84,11 @@
                                                         <rect key="frame" x="206.5" y="0.0" width="67.5" height="90.5"/>
                                                         <color key="backgroundColor" red="0.57647058823529407" green="0.6705882352941176" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="x³">
+                                                        <state key="normal" title="➔">
                                                             <color key="titleColor" red="0.1960784314" green="0.23529411759999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="performOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3gP-e7-k1G"/>
+                                                            <action selector="touchBackspace" destination="BYZ-38-t0r" eventType="touchUpInside" id="0JK-Uy-bRc"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktj-xv-zGl">
