@@ -47,7 +47,7 @@ class CalculatorUITests: XCTestCase {
         app.buttons["="].tap()
         
         let displayTextField = app.staticTexts["displayField"].label as String
-        XCTAssert(displayTextField == "-48.0")
+        XCTAssert(displayTextField == "-48")
     }
     
 }

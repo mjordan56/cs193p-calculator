@@ -59,7 +59,7 @@ class InputSequenceTests: XCTestCase {
         var displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "7", "Display text is incorrect.")
         var inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "7.0 + …", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "7 + …", "Input sequence text is incorrect.")
         
         // b. 7 + 9 would show "7 + …" (9 in the display)
         //
@@ -68,25 +68,25 @@ class InputSequenceTests: XCTestCase {
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "9", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "7.0 + …", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "7 + …", "Input sequence text is incorrect.")
         
         // c. 7 + 9 = would show "7 + 9 =" (16 in the display)
         //
         app.buttons["="].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "16.0", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "16", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "7.0 + 9.0 =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "7 + 9 =", "Input sequence text is incorrect.")
         
         // d. 7 + 9 = √ would show "√(7 + 9) =" (4 in the display)
         //
         app.buttons["√"].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "4.0", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "4", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "√(7.0 + 9.0) =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "√(7 + 9) =", "Input sequence text is incorrect.")
         
         // e. 7 + 9 = √ + 2 = would show "√(7 + 9) + 2 =" (6 in the display)
         //
@@ -95,9 +95,9 @@ class InputSequenceTests: XCTestCase {
         app.buttons["="].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "6.0", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "6", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "√(7.0 + 9.0) + 2.0 =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "√(7 + 9) + 2 =", "Input sequence text is incorrect.")
         
         // f. 7 + 9 √ would show "7 + √(9)" (3 in the display)
         // NOTE: This step does not build from the previous entries and requires a "clear"
@@ -109,18 +109,18 @@ class InputSequenceTests: XCTestCase {
         app.buttons["√"].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "3.0", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "3", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "7.0 + √(9.0) …", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "7 + √(9) …", "Input sequence text is incorrect.")
 
         // g. 7 + 9 √ = would show "7 + √(9)=" (3 in the display)
         //
         app.buttons["="].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "10.0", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "10", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "7.0 + √(9.0) =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "7 + √(9) =", "Input sequence text is incorrect.")
 
         // h. 7 + 9 = + 6 = + 3 = would show "7 + 9 + 6 + 3=" (25 in the display)
         // NOTE: This step does not build from the previous entries and requires a "clear"
@@ -138,9 +138,9 @@ class InputSequenceTests: XCTestCase {
         app.buttons["="].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "25.0", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "25", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "7.0 + 9.0 + 6.0 + 3.0 =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "7 + 9 + 6 + 3 =", "Input sequence text is incorrect.")
         
         // i. 7 + 9 = √ 6 + 3 = would show "6 + 3 =" (9 in the display)
         // NOTE: This step does not build from the previous entries and requires a "clear"
@@ -157,9 +157,9 @@ class InputSequenceTests: XCTestCase {
         app.buttons["="].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "9.0", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "9", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "6.0 + 3.0 =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "6 + 3 =", "Input sequence text is incorrect.")
         
         // j. 5 + 6 = 7 3 would show "5 + 6 =" (73 in the display)
         // NOTE: This step does not build from the previous entries and requires a "clear"
@@ -175,7 +175,7 @@ class InputSequenceTests: XCTestCase {
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "73", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "5.0 + 6.0 =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "5 + 6 =", "Input sequence text is incorrect.")
         
         // k. 4 × π = would show "4 × π =" (12.5663706143592 in the display)
         // NOTE: This step does not build from the previous entries and requires a "clear"
@@ -187,8 +187,8 @@ class InputSequenceTests: XCTestCase {
         app.buttons["="].tap()
         
         displayText = displayTextElement.label as String
-        XCTAssertEqual(displayText, "12.5663706143592", "Display text is incorrect.")
+        XCTAssertEqual(displayText, "12.566371", "Display text is incorrect.")
         inputSequenceText = inputSequenceTextElement.label as String
-        XCTAssertEqual(inputSequenceText, "4.0 × π =", "Input sequence text is incorrect.")
+        XCTAssertEqual(inputSequenceText, "4 × π =", "Input sequence text is incorrect.")
     }
 }

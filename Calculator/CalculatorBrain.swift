@@ -10,9 +10,20 @@ import Foundation
 
 struct CalculatorBrain {
     
+    var numberFormatter: NumberFormatter?
+    
     private var accumulator: (value: Double?, description: String) = (nil, "") {
         didSet {
             print(accumulator.description)
+        }
+    }
+    
+    private func formatValue(_ number: Double) -> String {
+        if let formatter = numberFormatter {
+            return formatter.string(from: NSNumber(value: number))!
+        }
+        else {
+            return "\(number)"
         }
     }
     
@@ -108,7 +119,7 @@ struct CalculatorBrain {
     }
     
     mutating func setOperand(_ operand: Double) {
-        accumulator = (operand, "\(operand)")
+        accumulator = (operand, formatValue(operand))
     }
     
     var result: (value: Double?, description: String) {

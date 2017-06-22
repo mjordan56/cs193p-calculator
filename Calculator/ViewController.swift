@@ -20,12 +20,23 @@ class ViewController: UIViewController {
     
     var userIsInTheMiddleOfTyping = false
     
+    let numberFormatter = NumberFormatter()
+    
+    override func viewDidLoad() {
+        // Set the number formatter for the calculator brain to use when
+        // creating the input sequence description.
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.usesGroupingSeparator = false
+        numberFormatter.maximumFractionDigits = 6
+        brain.numberFormatter = numberFormatter
+    }
+
     var displayValue: Double {
         get {
             return Double(display.text!)!
         }
         set {
-            display.text = String(newValue)
+            display.text = numberFormatter.string(from: NSNumber(value: newValue))
         }
     }
     
