@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F436981D1E82316A000EFB21 /* CalculatorBrainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436981C1E82316A000EFB21 /* CalculatorBrainTests.swift */; };
+		F452710D1EF9611700E8FE3E /* BackspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F452710C1EF9611700E8FE3E /* BackspaceTests.swift */; };
 		F46980EF1E8430F100DEEB71 /* DecimalPointEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46980EE1E8430F100DEEB71 /* DecimalPointEntryTests.swift */; };
 		F46980F11E84313C00DEEB71 /* UnaryOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46980F01E84313C00DEEB71 /* UnaryOperatorTests.swift */; };
 		F46980F31E84315400DEEB71 /* BinaryOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46980F21E84315400DEEB71 /* BinaryOperatorTests.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		F436981C1E82316A000EFB21 /* CalculatorBrainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrainTests.swift; sourceTree = "<group>"; };
+		F452710C1EF9611700E8FE3E /* BackspaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackspaceTests.swift; sourceTree = "<group>"; };
 		F46980EE1E8430F100DEEB71 /* DecimalPointEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalPointEntryTests.swift; sourceTree = "<group>"; };
 		F46980F01E84313C00DEEB71 /* UnaryOperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnaryOperatorTests.swift; sourceTree = "<group>"; };
 		F46980F21E84315400DEEB71 /* BinaryOperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryOperatorTests.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				F47DAB771E73718700BC4412 /* Info.plist */,
 				F46980F41E848C7B00DEEB71 /* ClearAndResetCalculatorTests.swift */,
 				F47C22661EF4966C00038580 /* InputSequenceTests.swift */,
+				F452710C1EF9611700E8FE3E /* BackspaceTests.swift */,
 			);
 			path = CalculatorUITests;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F46980F51E848C7B00DEEB71 /* ClearAndResetCalculatorTests.swift in Sources */,
+				F452710D1EF9611700E8FE3E /* BackspaceTests.swift in Sources */,
 				F46980F31E84315400DEEB71 /* BinaryOperatorTests.swift in Sources */,
 				F47DAB761E73718700BC4412 /* CalculatorUITests.swift in Sources */,
 				F46980EF1E8430F100DEEB71 /* DecimalPointEntryTests.swift in Sources */,
