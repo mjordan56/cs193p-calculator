@@ -20,7 +20,6 @@
 		F47DAB5D1E73718700BC4412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47DAB5C1E73718700BC4412 /* Assets.xcassets */; };
 		F47DAB601E73718700BC4412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47DAB5E1E73718700BC4412 /* LaunchScreen.storyboard */; };
 		F47DAB6B1E73718700BC4412 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DAB6A1E73718700BC4412 /* CalculatorTests.swift */; };
-		F47DAB761E73718700BC4412 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47DAB751E73718700BC4412 /* CalculatorUITests.swift */; };
 		F49463D51E7AEB85005465E3 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49463D41E7AEB85005465E3 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +59,6 @@
 		F47DAB6A1E73718700BC4412 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		F47DAB6C1E73718700BC4412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47DAB711E73718700BC4412 /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F47DAB751E73718700BC4412 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		F47DAB771E73718700BC4412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49463D41E7AEB85005465E3 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,14 +132,13 @@
 		F47DAB741E73718700BC4412 /* CalculatorUITests */ = {
 			isa = PBXGroup;
 			children = (
+				F452710C1EF9611700E8FE3E /* BackspaceTests.swift */,
 				F46980F21E84315400DEEB71 /* BinaryOperatorTests.swift */,
-				F47DAB751E73718700BC4412 /* CalculatorUITests.swift */,
+				F46980F41E848C7B00DEEB71 /* ClearAndResetCalculatorTests.swift */,
 				F46980EE1E8430F100DEEB71 /* DecimalPointEntryTests.swift */,
+				F47C22661EF4966C00038580 /* InputSequenceTests.swift */,
 				F46980F01E84313C00DEEB71 /* UnaryOperatorTests.swift */,
 				F47DAB771E73718700BC4412 /* Info.plist */,
-				F46980F41E848C7B00DEEB71 /* ClearAndResetCalculatorTests.swift */,
-				F47C22661EF4966C00038580 /* InputSequenceTests.swift */,
-				F452710C1EF9611700E8FE3E /* BackspaceTests.swift */,
 			);
 			path = CalculatorUITests;
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 				F46980F51E848C7B00DEEB71 /* ClearAndResetCalculatorTests.swift in Sources */,
 				F452710D1EF9611700E8FE3E /* BackspaceTests.swift in Sources */,
 				F46980F31E84315400DEEB71 /* BinaryOperatorTests.swift in Sources */,
-				F47DAB761E73718700BC4412 /* CalculatorUITests.swift in Sources */,
 				F46980EF1E8430F100DEEB71 /* DecimalPointEntryTests.swift in Sources */,
 				F46980F11E84313C00DEEB71 /* UnaryOperatorTests.swift in Sources */,
 				F47C22671EF4966C00038580 /* InputSequenceTests.swift in Sources */,

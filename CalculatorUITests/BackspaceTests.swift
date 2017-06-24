@@ -54,6 +54,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "0", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, " ", "Input sequence text is incorrect.")
     }
@@ -67,6 +68,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "0", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, " ", "Input sequence text is incorrect.")
     }
@@ -81,6 +83,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "7", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, " ", "Input sequence text is incorrect.")
     }
@@ -97,6 +100,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "791", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, " ", "Input sequence text is incorrect.")
     }
@@ -117,6 +121,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "79.125", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, " ", "Input sequence text is incorrect.")
     }
@@ -132,6 +137,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "7", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + …", "Input sequence text is incorrect.")
     }
@@ -151,6 +157,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "0", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + …", "Input sequence text is incorrect.")
     }
@@ -164,6 +171,7 @@ class BackspaceTests: XCTestCase {
         
         let displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "3.141593", "Display text is incorrect.")
+        
         let inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "π =", "Input sequence text is incorrect.")
     }

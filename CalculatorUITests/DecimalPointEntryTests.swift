@@ -21,7 +21,7 @@ class DecimalPointEntryTests: XCTestCase {
         // of each test method in the class.
         app = XCUIApplication()
         displayTextElement = app.staticTexts["displayField"]
-        
+
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         
@@ -39,20 +39,52 @@ class DecimalPointEntryTests: XCTestCase {
         displayTextElement = nil
     }
     
+    // NOTE: These tests do not effect the input sequence display and as such do
+    // not include testing the input sequence display.
+    
+    /**
+     * Test entering a decimal point as the first digit should retain the zero in
+     * addition to showing the decimal point n the display text.
+     */
     func testDecimalPointIsEnteredFirst() {
         app.buttons["."].tap()
+        
         let displayText = displayTextElement.label as String
-        XCTAssert(displayText == "0.")
+        XCTAssertEqual(displayText, "0.")
     }
     
+    /**
+     * Test entering multiple decimal points while NOT in digit entry. Successive
+     * decimal should be ignored.
+     */
     func testMultipleDecimalPointsAreEnteredFirst() {
         app.buttons["."].tap()
         app.buttons["."].tap()
         app.buttons["."].tap()
+        
         let displayText = displayTextElement.label as String
-        XCTAssert(displayText == "0.")
+        XCTAssertEqual(displayText, "0.")
     }
     
+    /**
+     * Test entering multiple decimal points then beginning digit entry. Successive
+     * decimal should be ignored.
+     */
+    func testMultipleDecimalPointsAreEnteredBeforeDigits() {
+        app.buttons["."].tap()
+        app.buttons["."].tap()
+        app.buttons["."].tap()
+        app.buttons["1"].tap()
+        app.buttons["2"].tap()
+        
+        let displayText = displayTextElement.label as String
+        XCTAssertEqual(displayText, "0.12")
+    }
+    
+    /**
+     * Test entering multiple decimal points during digit entry. Successive decimal
+     * should be ignored.
+     */
     func testMultipleDecimalPointDuringOperandEntery() {
         app.buttons["1"].tap()
         app.buttons["2"].tap()
@@ -61,7 +93,8 @@ class DecimalPointEntryTests: XCTestCase {
         app.buttons["."].tap()
         app.buttons["."].tap()
         app.buttons["5"].tap()
+        
         let displayText = displayTextElement.label as String
-        XCTAssert(displayText == "12.75")
+        XCTAssertEqual(displayText, "12.75")
     }
 }

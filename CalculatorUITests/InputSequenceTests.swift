@@ -58,6 +58,7 @@ class InputSequenceTests: XCTestCase {
         
         var displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "7", "Display text is incorrect.")
+        
         var inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + …", "Input sequence text is incorrect.")
         
@@ -67,6 +68,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "9", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + …", "Input sequence text is incorrect.")
         
@@ -76,6 +78,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "16", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + 9 =", "Input sequence text is incorrect.")
         
@@ -85,6 +88,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "4", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "√(7 + 9) =", "Input sequence text is incorrect.")
         
@@ -96,6 +100,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "6", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "√(7 + 9) + 2 =", "Input sequence text is incorrect.")
         
@@ -110,6 +115,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "3", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + √(9) …", "Input sequence text is incorrect.")
 
@@ -119,6 +125,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "10", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + √(9) =", "Input sequence text is incorrect.")
 
@@ -139,6 +146,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "25", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "7 + 9 + 6 + 3 =", "Input sequence text is incorrect.")
         
@@ -158,6 +166,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "9", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "6 + 3 =", "Input sequence text is incorrect.")
         
@@ -174,6 +183,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "73", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "5 + 6 =", "Input sequence text is incorrect.")
         
@@ -188,6 +198,7 @@ class InputSequenceTests: XCTestCase {
         
         displayText = displayTextElement.label as String
         XCTAssertEqual(displayText, "12.566371", "Display text is incorrect.")
+        
         inputSequenceText = inputSequenceTextElement.label as String
         XCTAssertEqual(inputSequenceText, "4 × π =", "Input sequence text is incorrect.")
     }

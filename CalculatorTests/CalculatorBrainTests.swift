@@ -16,6 +16,7 @@ class CalculatorBrainTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
         brain = CalculatorBrain()
     }
@@ -32,20 +33,20 @@ class CalculatorBrainTests: XCTestCase {
         brain.setOperand(3.14159)
         brain.reset()
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == nil)
+        XCTAssertEqual(brain.result.value, nil)
         
         brain.setOperand(3.14159)
         brain.performOperation("/")
         brain.reset()
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == nil)
+        XCTAssertEqual(brain.result.value, nil)
 
         brain.setOperand(3.14159)
         brain.performOperation("/")
         brain.setOperand(1.125)
         brain.reset()
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == nil)
+        XCTAssertEqual(brain.result.value, nil)
     }
     
     /**
@@ -55,12 +56,12 @@ class CalculatorBrainTests: XCTestCase {
         // Test setting the operand to a simple integer value.
         brain.setOperand(1)
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 1.0)
+        XCTAssertEqual(brain.result.value, 1.0)
         
         // Test setting the operand to a floating point value.
         brain.setOperand(3.125)
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 3.125)
+        XCTAssertEqual(brain.result.value, 3.125)
     }
     
     /**
@@ -71,13 +72,15 @@ class CalculatorBrainTests: XCTestCase {
         brain.setOperand(3.125)
         brain.performOperation("±")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == -3.125)
-        
+        XCTAssertEqual(brain.result.value, -3.125)
+        XCTAssertEqual(brain.result.description, "±(3.125)")
+
         // Test changing the sign of a negative floating point value to be positive.
         brain.setOperand(-3.125)
         brain.performOperation("±")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 3.125)
+        XCTAssertEqual(brain.result.value, 3.125)
+        XCTAssertEqual(brain.result.description, "±(-3.125)")
     }
     
     /**
@@ -90,7 +93,7 @@ class CalculatorBrainTests: XCTestCase {
         brain.setOperand(2)
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 5)
+        XCTAssertEqual(brain.result.value, 5)
         
         // Test adding two floating point values.
         brain.setOperand(-12.5)
@@ -98,56 +101,83 @@ class CalculatorBrainTests: XCTestCase {
         brain.setOperand(22.125)
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 9.625)
+        XCTAssertEqual(brain.result.value, 9.625)
     }
     
     /**
      * Tests to verify the description of the sequence of the operands and
-     * operations that led to the value returned by result.
+     * operations that led to the value returned by result. This test corresponds
+     * to the CS193p assignment 1 required task number 7. The test verifies the
+     * require text displays as defined in bullet items a thru k in the task requirement.
      */
     func testAccumulatorDescription() {
+        
+        // a. entering 7.0 + result is nil, a result is pending and input sequence
+        //    is "7.0 +"
+        //
         brain.setOperand(7.0)
         brain.performOperation("+")
         XCTAssert(brain.resultIsPending == true)
-        XCTAssert(brain.result.value == nil)
-        XCTAssert(brain.result.description == "7.0 +")
+        XCTAssertEqual(brain.result.value, nil)
+        XCTAssertEqual(brain.result.description, "7.0 +")
         
+        // b. entering 9.0 result is 9.0, a result is pending and input sequence
+        //    is "9.0"
+        //
         brain.setOperand(9.0)
         XCTAssert(brain.resultIsPending == true)
-        XCTAssert(brain.result.value == 9.0)
-        XCTAssert(brain.result.description == "9.0")
+        XCTAssertEqual(brain.result.value, 9.0)
+        XCTAssertEqual(brain.result.description, "9.0")
         
+        // c. entering = result is 16.0, a result is NOT pending and input
+        //    sequence is "7.0 + 9.0"
+        //
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 16.0)
-        XCTAssert(brain.result.description == "7.0 + 9.0")
+        XCTAssertEqual(brain.result.value, 16.0)
+        XCTAssertEqual(brain.result.description, "7.0 + 9.0")
         
+        // d. entering √ result is 4.0, a result is NOT pending and input
+        //    sequence is "√(7.0 + 9.0)"
+        //
         brain.performOperation("√")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 4.0)
-        XCTAssert(brain.result.description == "√(7.0 + 9.0)")
+        XCTAssertEqual(brain.result.value, 4.0)
+        XCTAssertEqual(brain.result.description, "√(7.0 + 9.0)")
         
+        // e. entering + 2.0 result is 6.0, a result is NOT pending and input
+        //    sequence is "√(7.0 + 9.0) + 2.0"
+        //
         brain.performOperation("+")
         brain.setOperand(2.0)
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 6.0)
-        XCTAssert(brain.result.description == "√(7.0 + 9.0) + 2.0")
+        XCTAssertEqual(brain.result.value, 6.0)
+        XCTAssertEqual(brain.result.description, "√(7.0 + 9.0) + 2.0")
         
+        // f. reset calculator, enter 7.0 + 9.0 √ result is 3.0, a result is
+        //    pending and input sequence is "7.0 + √(9.0)"
+        //
         brain.reset()
         brain.setOperand(7.0)
         brain.performOperation("+")
         brain.setOperand(9.0)
         brain.performOperation("√")
         XCTAssert(brain.resultIsPending == true)
-        XCTAssert(brain.result.value == 3.0)
-        XCTAssert(brain.result.description == "7.0 + √(9.0)")
+        XCTAssertEqual(brain.result.value, 3.0)
+        XCTAssertEqual(brain.result.description, "7.0 + √(9.0)")
         
+        // g. enter = result is 10.0, a result is NOT pending and input sequence
+        //    is "7.0 + √(9.0)"
+        //
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 10.0)
-        XCTAssert(brain.result.description == "7.0 + √(9.0)")
+        XCTAssertEqual(brain.result.value, 10.0)
+        XCTAssertEqual(brain.result.description, "7.0 + √(9.0)")
 
+        // h. reset calculator, enter 7.0 + 9.0 = + 6.0 = + 3.0 = result is 25.0,
+        //    a result is NOT pending and input sequence is "7.0 + 9.0 + 6.0 + 3.0"
+        //
         brain.reset()
         brain.setOperand(7.0)
         brain.performOperation("+")
@@ -160,9 +190,12 @@ class CalculatorBrainTests: XCTestCase {
         brain.setOperand(3.0)
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 25.0)
-        XCTAssert(brain.result.description == "7.0 + 9.0 + 6.0 + 3.0")
+        XCTAssertEqual(brain.result.value, 25.0)
+        XCTAssertEqual(brain.result.description, "7.0 + 9.0 + 6.0 + 3.0")
         
+        // i. reset calculator, enter 7.0 + 9.0 = √ 6.0 + 3.0 = result is 9.0,
+        //    a result is NOT pending and input sequence is "6.0 + 3.0"
+        //
         brain.reset()
         brain.setOperand(7.0)
         brain.performOperation("+")
@@ -174,17 +207,21 @@ class CalculatorBrainTests: XCTestCase {
         brain.setOperand(3.0)
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 9.0)
-        XCTAssert(brain.result.description == "6.0 + 3.0")
+        XCTAssertEqual(brain.result.value, 9.0)
+        XCTAssertEqual(brain.result.description, "6.0 + 3.0")
+        
+        // j. THIS IS A UI TEST AND DOESN'T HAVE AN EQUIVALENT MODEL TEST.
 
+        // k. reset calculator, enter 4.0 × π = result is 12.56637061,
+        //    a result is NOT pending and input sequence is "4.0 × π"
+        //
         brain.reset()
         brain.setOperand(4.0)
         brain.performOperation("×")
         brain.performOperation("π")
         brain.performOperation("=")
         XCTAssert(brain.resultIsPending == false)
-        XCTAssert(brain.result.value == 4.0 * Double.pi)
-        XCTAssert(brain.result.description == "4.0 × π")
-
+        XCTAssertEqual(brain.result.value, 4.0 * Double.pi)
+        XCTAssertEqual(brain.result.description, "4.0 × π")
     }
 }
