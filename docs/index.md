@@ -30,4 +30,12 @@ There are also a set of UI unit tests to validate the behavior of the calculator
 
 ## Optional "Extra Credit" Features
 
-_{discuss and note optional features or variations that were addedd to the project}_
+The code for the extra credit tasks for Assignment I is on GitHub under a separate v1.1 release tag: [CS193p Calculator - Assignment I](https://github.com/mjordan56/cs193p-calculator/tree/v1.1)
+
+As the assignment says, "these are all pretty easy..." They were, indeed, pretty easy and straightforward to implement. I updated the model and UI tests to cover the new functionality and behaviors introduced by these feature enhancements. To accommodate the new backspace and random number buttons on the calculator I just repurposed the cubed and cubed root buttons instead of spending a lot of time on designing a new layout for the calculator.
+
+![Calculator](assets/images/calculator_v1.1.png)
+
+### Observation On NumberFormatter
+
+I was really impressed with the power and flexibility of the iOS struct NumberFormatter. This struct supports a __wide__ variety of number formatting needs including localizing for different locales. For this extra credit task just a few of the number formatting features were needed but I can see how this struct can be a powerful tool for formatting numbers.
